@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 First, run the development server:
 
 ```bash
-git clone https://github.com/kemalyalcin/kemal-portfolio.git
+git clone https://github.com/kemalpolatyalcin/kemal-portfolio.git
 cd kemal-portfolio
 
 npm install
