@@ -4,7 +4,7 @@ export default function Home() {
         {
             title: "Industry Summit '26",
             description: "High-traffic event platform engineered for 400+ active participants with robust performance and UI/UX.",
-            tech: ["TSX", "CSS", "Event Management"],
+            tech: ["TSX", "CSS"],
             link: "#"
         },
         {
