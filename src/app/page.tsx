@@ -1,6 +1,5 @@
 "use client";
 import { animate } from "framer-motion";
-import "./general.css";
 export default function Home() {
 
     const projects = [
@@ -8,31 +7,40 @@ export default function Home() {
             title: "Industry Summit '26",
             description: "High-traffic event platform engineered for 400+ active participants with robust performance and UI/UX.",
             tech: ["TSX", "CSS"],
-            link: "#"
+            link: "https://industrysummit.emu.edu.tr/"
         },
         {
             title: "Cortex AI Assistant",
             description: "Multimodal AI desktop assistant processing computer vision and speech recognition for real-time responsiveness.",
             tech: ["Python", "FastAPI", "Docker", "Gemini LLM"],
-            link: "#"
+            link: "https://github.com/kemalpolatyalcin/cortex-ai-assistant"
         },
         {
             title: "Kemal Portfolio",
             description: "A minimalist, high-performance personal portfolio built on a modern Next.js App Router architecture and server-side components.",
             tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
-            link: "#"
+            link: "https://github.com/kemalpolatyalcin/kemal-portfolio"
         },
         {
             title: "Educate",
             description: "A global-scale technology initiative designed to transform and innovate the traditional education model.",
             tech: ["Architecture", "Global Scale", "Innovation"],
-            link: "#"
+            link: "https://github.com/kemalpolatyalcin/educate"
         },
         {
             title: "TS Calculator",
             description: "A high-precision financial tool built with strict type safety to calculate compound interest and future wealth projections for companies.",
             tech: ["TypeScript", "React", "Financial Logic"],
-            link: "#"
+            link: "https://github.com/kemalpolatyalcin/ts-calculator"
+        }
+    ];
+
+    const leadership = [
+        {
+            role: "Vice President",
+            organization: "Industrial Engineering Club",
+            description: "Spearheaded corporate technical visits to industry leaders like Kktcell and Metgin Ltd., bridging the gap between academic theory and corporate infrastructure.",
+            date: "2025 - Present"
         }
     ];
 
@@ -74,7 +82,7 @@ export default function Home() {
                             Kemal Polat Yalcin
                         </h1>
                         <p className="text-zinc-500 text-sm md:text-xl font-medium tracking-[0.2em] uppercase animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
-                            Developer
+                            Full-Stack Developer
                         </p>
                     </div>
 
@@ -85,6 +93,14 @@ export default function Home() {
                         >
                             View Projects
                         </button>
+                        <a
+                            href="/001-KemalPolat-Yalcin-CV.pdf"
+                            download="Kemal_Polat_Yalcin_CV.pdf"
+                            className="w-full sm:w-auto px-8 py-4 border border-zinc-700 bg-zinc-900/50 text-white text-sm font-bold rounded-full hover:bg-zinc-800 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Download CV
+                        </a>
                         <a href="mailto:kemalpolatkemal1@gmail.com" className="w-full sm:w-auto px-10 py-4 border border-zinc-800 text-zinc-400 text-sm font-bold rounded-full hover:bg-zinc-900 hover:text-white active:scale-95 transition-all duration-300">
                             Contact Me
                         </a>
@@ -95,7 +111,7 @@ export default function Home() {
             <section id="projects" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-900">
                 <div className="mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
-                        Architecture
+                        Projects
                     </h2>
                     <p className="text-zinc-400 text-lg max-w-2xl">
                         A selection of my recent work in AI automation, scalable event systems, and global technology initiatives.
@@ -104,14 +120,20 @@ export default function Home() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                     {projects.map((project, index) => (
-                        <div
+                        <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             key={index}
-                            className="group relative p-8 bg-zinc-900/30 border border-zinc-800/50 rounded-3xl hover:bg-zinc-800/40 hover:border-zinc-700 transition-all duration-500 flex flex-col justify-between"
+                            className="group relative p-8 bg-zinc-900/30 border border-zinc-800/50 rounded-3xl hover:bg-zinc-800/40 hover:border-zinc-700 transition-all duration-500 flex flex-col justify-between block"
                         >
                             <div>
-                                <h3 className="text-2xl font-bold mb-3 group-hover:text-white text-zinc-200 transition-colors">
-                                    {project.title}
-                                </h3>
+                                <div className="flex justify-between items-start mb-3">
+                                    <h3 className="text-2xl font-bold group-hover:text-white text-zinc-200 transition-colors">
+                                        {project.title}
+                                    </h3>
+                                    <svg className="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </div>
                                 <p className="text-zinc-400 text-sm md:text-base mb-8 leading-relaxed">
                                     {project.description}
                                 </p>
@@ -126,6 +148,33 @@ export default function Home() {
                                         {tech}
                                     </span>
                                 ))}
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </section>
+            <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-900">
+                <div className="mb-16">
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
+                        Leadership & Impact
+                    </h2>
+                    <p className="text-zinc-400 text-lg max-w-2xl">
+                        Building communities, orchestrating large-scale events, and bridging the gap between academia and the tech industry.
+                    </p>
+                </div>
+
+                <div className="space-y-8">
+                    {leadership.map((item, index) => (
+                        <div key={index} className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 p-6 md:p-8 bg-zinc-900/20 border border-zinc-800/40 rounded-2xl hover:bg-zinc-900/40 transition-colors">
+                            <div className="md:w-1/4 shrink-0">
+                                <span className="text-sm font-bold text-zinc-500 tracking-wider uppercase">{item.date}</span>
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold text-zinc-100 mb-1">{item.role}</h3>
+                                <h4 className="text-md font-medium text-zinc-400 mb-4">{item.organization}</h4>
+                                <p className="text-zinc-400 leading-relaxed text-sm md:text-base">
+                                    {item.description}
+                                </p>
                             </div>
                         </div>
                     ))}
