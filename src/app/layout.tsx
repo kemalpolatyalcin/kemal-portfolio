@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./general.css";
+import { html } from "framer-motion/client";
 
 export const metadata: Metadata = {
     title: "Kemal Polat Yalcin | Full-Stack Developer",
@@ -13,7 +14,8 @@ export default function RootLayout({
 }) {
 
     return (
-        <html lang="en">
+
+        <html lang="en" className="scroll-smooth">
             <body className="antialiased bg-[#0a0a0a] text-white">
                 {children}
             </body>
