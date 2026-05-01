@@ -2,6 +2,13 @@
 import { animate } from "framer-motion";
 export default function Home() {
 
+    const metrics = [
+        { label: "Event Attendees", value: "450+" },
+        { label: "Enterprise Partners", value: "2+" },
+        { label: "Deployed Projects", value: "10+" },
+        { label: "Tech Stacks", value: "15+" }
+    ];
+
     const projects = [
         {
             title: "Industry Summit '26",
@@ -124,7 +131,22 @@ export default function Home() {
                     </div>
                 </div>
             </main>
-
+            <section className="py-12 border-t border-zinc-900 bg-zinc-900/20">
+                <div className="max-w-7xl mx-auto px-6 md:px-12">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:divide-x md:divide-zinc-800/50">
+                        {metrics.map((metric, index) => (
+                            <div key={index} className="flex flex-col items-center justify-center group">
+                                <span className="text-4xl md:text-5xl font-bold text-emerald-500 mb-2 group-hover:scale-110 group-hover:text-emerald-400 transition-all duration-300">
+                                    {metric.value}
+                                </span>
+                                <span className="text-xs md:text-sm text-zinc-500 uppercase tracking-[0.2em] font-medium">
+                                    {metric.label}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
             <section id="projects" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-900">
                 <div className="mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
