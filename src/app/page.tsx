@@ -14,31 +14,36 @@ export default function Home() {
             title: "Industry Summit '26",
             description: "High-traffic event platform engineered for 400+ active participants with robust performance and UI/UX.",
             tech: ["TSX", "CSS"],
-            link: "https://industrysummit.emu.edu.tr/"
+            link: "https://industrysummit.emu.edu.tr/",
+            video: "/videos/sum.mp4"
         },
         {
             title: "Cortex AI Assistant",
             description: "Multimodal AI desktop assistant processing computer vision and speech recognition for real-time responsiveness.",
             tech: ["Python", "FastAPI", "Docker", "Gemini LLM"],
-            link: "https://github.com/kemalpolatyalcin/cortex-ai-assistant"
+            link: "https://github.com/kemalpolatyalcin/cortex-ai-assistant",
+            video: "/videos/cortex.mp4"
         },
         {
             title: "Kemal Portfolio",
             description: "A minimalist, high-performance personal portfolio built on a modern Next.js App Router architecture and server-side components.",
             tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
-            link: "https://github.com/kemalpolatyalcin/kemal-portfolio"
+            link: "https://github.com/kemalpolatyalcin/kemal-portfolio",
+            video: "/videos/portfolio.mp4"
         },
         {
             title: "Educate",
             description: "A global-scale technology initiative designed to transform and innovate the traditional education model.",
             tech: ["Architecture", "Global Scale", "Innovation"],
-            link: "https://github.com/kemalpolatyalcin/educate"
+            link: "https://github.com/kemalpolatyalcin/educate",
+            video: "/videos/educate.mp4"
         },
         {
             title: "TS Calculator",
             description: "A high-precision financial tool built with strict type safety to calculate compound interest and future wealth projections for companies.",
             tech: ["TypeScript", "React", "Financial Logic"],
-            link: "https://github.com/kemalpolatyalcin/ts-calculator"
+            link: "https://github.com/kemalpolatyalcin/ts-calculator",
+            video: "/videos/cal.mp4"
         }
     ];
 
@@ -54,15 +59,33 @@ export default function Home() {
     const techStack = [
         {
             category: "Architecture & Cloud",
-            skills: ["AWS", "Microsoft Azure", "Docker", "PostgreSQL", "System Design"]
+            skills: [
+                { name: "AWS", icon: "amazonaws" },
+                { name: "Azure", icon: "microsoftazure" },
+                { name: "Docker", icon: "docker" },
+                { name: "PostgreSQL", icon: "postgresql" },
+                { name: "System Design", icon: "" }
+            ]
         },
         {
             category: "Backend & AI",
-            skills: ["Python", "FastAPI", "Node.js", "Prisma ORM", "Gemini LLM"]
+            skills: [
+                { name: "Python", icon: "python" },
+                { name: "FastAPI", icon: "fastapi" },
+                { name: "Node.js", icon: "nodedotjs" },
+                { name: "Prisma", icon: "prisma" },
+                { name: "Gemini LLM", icon: "googlegemini" }
+            ]
         },
         {
             category: "Frontend & UI",
-            skills: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Framer Motion"]
+            skills: [
+                { name: "Next.js", icon: "nextdotjs" },
+                { name: "TypeScript", icon: "typescript" },
+                { name: "React", icon: "react" },
+                { name: "Tailwind CSS", icon: "tailwindcss" },
+                { name: "Framer Motion", icon: "framer" }
+            ]
         }
     ];
 
@@ -164,25 +187,38 @@ export default function Home() {
                             target="_blank"
                             rel="noopener noreferrer"
                             key={index}
-                            className="group relative p-8 bg-zinc-900/30 border border-zinc-800/50 rounded-3xl hover:bg-zinc-800/40 hover:border-zinc-700 transition-all duration-500 flex flex-col justify-between block"
+                            className="group relative overflow-hidden p-8 bg-zinc-900/30 border border-zinc-800/50 rounded-3xl hover:border-emerald-700/50 hover:bg-zinc-900/80 transition-all duration-500 flex flex-col justify-between block"
                         >
-                            <div>
+                            {project.video && (
+                                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-15 transition-opacity duration-700 pointer-events-none">
+                                    <video
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-full object-cover"
+                                        src={project.video}
+                                    />
+                                </div>
+                            )}
+
+                            <div className="relative z-10">
                                 <div className="flex justify-between items-start mb-3">
-                                    <h3 className="text-2xl font-bold group-hover:text-white text-zinc-200 transition-colors">
+                                    <h3 className="text-2xl font-bold group-hover:text-emerald-400 text-zinc-200 transition-colors duration-300">
                                         {project.title}
                                     </h3>
-                                    <svg className="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    <svg className="w-5 h-5 text-zinc-600 group-hover:text-emerald-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                                 </div>
                                 <p className="text-zinc-400 text-sm md:text-base mb-8 leading-relaxed">
                                     {project.description}
                                 </p>
                             </div>
 
-                            <div className="flex flex-wrap gap-2">
+                            <div className="relative z-10 flex flex-wrap gap-2">
                                 {project.tech.map((tech, i) => (
                                     <span
                                         key={i}
-                                        className="text-xs font-semibold tracking-wide px-3 py-1 bg-[#0a0a0a] text-zinc-300 rounded-full border border-zinc-800 group-hover:border-zinc-600 transition-colors"
+                                        className="text-xs font-semibold tracking-wide px-3 py-1 bg-[#0a0a0a]/80 backdrop-blur-sm text-zinc-300 rounded-full border border-zinc-800 group-hover:border-emerald-600/50 group-hover:text-emerald-100 transition-colors duration-300"
                                     >
                                         {tech}
                                     </span>
@@ -240,9 +276,17 @@ export default function Home() {
                                 {stack.skills.map((skill, i) => (
                                     <span
                                         key={i}
-                                        className="px-4 py-2 bg-[#0a0a0a] border border-zinc-800 rounded-lg text-sm text-zinc-400 font-medium hover:border-zinc-500 hover:text-white hover:-translate-y-1 transition-all duration-300 cursor-default shadow-sm"
+                                        className="group flex items-center gap-2 px-4 py-2 bg-[#0a0a0a] border border-zinc-800 rounded-lg text-sm text-zinc-400 font-medium hover:border-emerald-500 hover:text-emerald-400 hover:-translate-y-1 transition-all duration-300 cursor-default shadow-sm"
                                     >
-                                        {skill}
+
+                                        {skill.icon && (
+                                            <img
+                                                src={`https://cdn.simpleicons.org/${skill.icon}`}
+                                                alt={skill.name}
+                                                className="w-4 h-4 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                                            />
+                                        )}
+                                        {skill.name}
                                     </span>
                                 ))}
                             </div>
